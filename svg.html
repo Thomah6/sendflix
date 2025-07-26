@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflet d'icône</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .icon-container {
+            display: flex;
+            gap: 2em;
+            align-items: flex-end;
+        }
+        .icon-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        .icon-wrapper .svg-icon {
+            width: 4em;
+            height: 4em;
+            vertical-align: middle;
+            fill: currentColor;
+            overflow: hidden;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            z-index: 1;
+        }
+        .icon-wrapper:before {
+            content: "";
+            position: absolute;
+            bottom: -1em;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: scaleY(-1);
+            z-index: -1;
+            filter: blur(2px);
+        }
+        /* Webkit-specific reflection */
+        .icon-wrapper .svg-icon {
+            -webkit-box-reflect: below -8px -webkit-gradient(linear, left bottom, left top, from(#ffffff28), to(rgba(255, 255, 255, 0)));
+        }
+        /* Animation pour l'icône Cœur */
+/* Animation pour l'icône Cœur */
+.icon-star {
+    animation: rotateY-heart 9s linear infinite; /* Durée totale de l'animation de 9 secondes */
+}
+
+@keyframes rotateY-heart {
+    0% {
+        transform: rotateY(0deg);
+    }
+    10% {
+        transform: rotateY(360deg);
+    }
+   
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+/* Animation pour l'icône Cœur */
+/* Animation pour l'icône Cœur */
+.icon-heart {
+    animation: shake-heart 11s ease-in-out infinite;
+}
+
+@keyframes shake-heart {
+    0% {
+        transform: translateY(0); /* Position initiale */
+    }
+    5% {
+        transform: translateY(-15px); /* Déplacement vers le haut */
+    }
+    10% {
+        transform: translateY(0); /* Retour à la position initiale */
+    }
+    30% {
+        transform: translateY(0); /* Maintien de la position finale */
+    }
+    100% {
+        transform: translateY(0); /* Maintien de la position finale */
+    }
+}
+
+
+
+        /* Ensure perspective is applied to parent to visualize 3D effect */
+        .icon-container {
+            perspective: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="icon-container">
+        <!-- Icône Cœur -->
+        <div class="icon-wrapper">
+            <svg class="svg-icon icon-heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FF6F61;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FF1493;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M14 20.408c-.492.308-.903.546-1.192.709-.153.086-.308.17-.463.252h-.002a.75.75 0 01-.686 0 16.709 16.709 0 01-.465-.252 31.147 31.147 0 01-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31.146 31.146 0 0114 20.408z" fill="url(#heartGradient)" />
+            </svg>
+        </div>
+
+        <!-- Icône Flamme -->
+        <div class="icon-wrapper">
+            <svg class="svg-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="flameGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#FF4500;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#FF6347;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M336 972.8c-60.8-128-28.8-201.6 19.2-268.8 51.2-76.8 64-150.4 64-150.4s41.6 51.2 25.6 134.4c70.4-80 83.2-208 73.6-256 160 112 230.4 358.4 137.6 537.6 492.8-281.6 121.6-700.8 57.6-745.6 22.4 48 25.6 128-19.2 166.4-73.6-281.6-256-336-256-336 22.4 144-76.8 300.8-172.8 419.2-3.2-57.6-6.4-96-38.4-153.6-6.4 105.6-86.4 188.8-108.8 294.4C89.6 758.4 140.8 860.8 336 972.8L336 972.8z" fill="url(#flameGradient)" />
+            </svg>
+        </div>
+  
+        <!-- Icône Étoile -->
+        <div class="icon-wrapper">
+            <svg class="svg-icon icon-star" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#a418f5; stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#00D4FF; stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M964.608 424.96L752.64 631.808l50.176 290.816c1.024 8.192-2.048 15.36-8.192 20.48-3.072 3.072-8.192 4.096-12.288 4.096-3.072 0-6.144-1.024-9.216-2.048L512 806.912 250.88 944.128c-7.168 4.096-15.36 3.072-21.504-2.048-6.144-4.096-9.216-12.288-8.192-20.48l50.176-290.816L59.392 424.96c-5.12-5.12-7.168-13.312-5.12-21.504 2.048-7.168 9.216-13.312 16.384-14.336l291.84-40.96L493.568 82.944c3.072-7.168 10.24-11.264 18.432-11.264s15.36 4.096 18.432 11.264L661.504 348.16l291.84 41.984c8.192 1.024 14.336 6.144 16.384 14.336s0 15.36-5.12 20.48z" fill="url(#starGradient)" />
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

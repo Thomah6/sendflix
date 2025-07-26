@@ -1,0 +1,54 @@
+@media screen and (max-width: 900px) {
+    
+    
+}
+
+@media screen and (min-width: 901px) {
+
+
+  
+}
+body{
+  margin: 0;
+}
+.nav{
+    display: none;
+}
+
+textarea::placeholder{
+  color:white;
+}
+[role=tablist] {
+    position: relative;
+    display: flex;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  
+  }
+  
+  
+  
+  [role=tab] {
+    color: #fff;
+    background: none;
+    background: transparent;font-size: 17px;
+    width:90px;padding: 10px 0px;
+    border: 0;outline: none;
+   text-align: center;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  
+  [role=tab]:hover {
+    opacity: 1;transition: all .4s;
+  
+  }
+  
+  [role=tab][aria-selected=true] {
+    opacity: 1;border-bottom: 4px solid white;transition: all .4s;
+  }
+
+  .commentaire{
+   
+  }

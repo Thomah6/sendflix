@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltip Example</title>
+<style>
+    /* styles.css */
+.tooltip-container {
+    position: relative;margin:100px;
+    display: inline-block;
+}
+
+/* styles.css */
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    display: ;
+    position: absolute;
+    top: -70px; /* Positionne le tooltip au-dessus du bouton */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1); /* Couleur de fond semi-transparente */
+    border-radius: 8px;
+    padding: 10px 15px;
+    color: #c52121;
+    font-size: 0.875em;
+    backdrop-filter: blur(10px); /* Effet de flou pour glassmorphisme */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre pour un effet d'élévation */
+    white-space: nowrap;
+    z-index: 1000;
+    /* Ajoute une flèche avec pseudo-élément */
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Positionne la flèche en dessous du tooltip */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #333; /* Couleur de la flèche */
+}
+
+
+</style>
+</head>
+<body>
+    <div class="tooltip-container">
+        <button id="tooltipButton">Cliquez-moi</button>
+        <div id="tooltip" class="tooltip">Voici votre tooltip !</div>
+    </div>
+    <script >
+// script.js
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.getElementById('tooltipButton');
+    const tooltip = document.getElementById('tooltip');
+
+    button.addEventListener('click', function() {
+        // Toggle the visibility of the tooltip
+        if (tooltip.style.display === 'block') {
+            tooltip.style.display = 'none';
+        } else {
+            tooltip.style.display = 'block';
+        }
+    });
+
+    // Hide the tooltip if clicking outside
+    document.addEventListener('click', function(event) {
+        if (!button.contains(event.target) && !tooltip.contains(event.target)) {
+            tooltip.style.display = 'none';
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

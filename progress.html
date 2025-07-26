@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progression de Visionnage</title>
+<style>
+    .video-player {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <div class="video-player">
+        <video id="videoPlayer" width="100%" controls>
+            <source src="videos/[@Watch_Animes] The Grimm Variation - 04 VOSTFR.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>Progression actuelle : <span id="progress">0</span> secondes</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const progressDisplay = document.getElementById('progress');
+
+            // Charger la progression de visionnage sauvegardée
+            let savedProgress = loadWatchProgress('example-video');
+            if (savedProgress !== null) {
+                videoPlayer.currentTime = parseFloat(savedProgress);
+                progressDisplay.textContent = savedProgress;
+            }
+
+            // Enregistrer la progression de visionnage lors de l'arrêt de la vidéo
+            videoPlayer.addEventListener('ended', function() {
+                saveWatchProgress('example-video', videoPlayer.currentTime);
+            });
+
+            // Mise à jour de l'affichage de la progression de visionnage
+            videoPlayer.addEventListener('timeupdate', function() {
+                progressDisplay.textContent = videoPlayer.currentTime.toFixed(2);
+            });
+
+            // Fonction pour enregistrer la progression de visionnage
+            function saveWatchProgress(videoId, currentTime) {
+                // Stockage en local (exemple avec localStorage)
+                localStorage.setItem(`watch-progress-${videoId}`, currentTime);
+            }
+
+            // Fonction pour charger la progression de visionnage
+            function loadWatchProgress(videoId) {
+                // Récupération depuis le local storage
+                return localStorage.getItem(`watch-progress-${videoId}`);
+            }
+        });
+    </script>
+</body>
+</html>
